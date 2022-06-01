@@ -18,6 +18,7 @@ void Data::setDay(int day)
 
 int Data::getDay()
 {
+	cout << "Day: ";
 	return day;
 }
 
@@ -28,6 +29,7 @@ void Data::setMonth(int month)
 
 int Data::getMonth()
 {
+	cout << "Month: ";
 	return month;
 }
 
@@ -38,5 +40,6 @@ void Data::setYear(int year)
 
 int Data::getYear()
 {
+	cout << "Year: ";
 	return year;
 }

@@ -8,21 +8,20 @@ using namespace std;
 
 class Human
 {
-	int id;
+	static int id;
 	string surname;
 	string name;
 	string patronymic;
 	Data data_of_birth;
 	static int count_human;
 public:
-	Human(int id, string surname, string name, string patronymic, Data data_of_birth);
+	Human(string surname, string name, string patronymic, Data data_of_birth);
 	Human();
 	Human(Data data_of_birth);
 	Human(const Human &human);
 	~Human();
-	static int getCountNuman();
-	void setId(int id);
-	int getId();
+	static int getCountHuman();
+	static int getId();
 	void setSurname(string surname);
 	string getSurname();
 	void setName(string name);

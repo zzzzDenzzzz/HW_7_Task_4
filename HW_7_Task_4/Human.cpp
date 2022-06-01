@@ -1,6 +1,6 @@
 #include "Human.h"
 
-Human::Human(int id, string surname, string name, string patronymic, Data data_of_birth)
+Human::Human(string surname, string name, string patronymic, Data data_of_birth)
 {
 	this->id = id;
 	this->surname = surname;
@@ -10,18 +10,17 @@ Human::Human(int id, string surname, string name, string patronymic, Data data_o
 	count_human++;
 }
 
-Human::Human() : Human{ 0, "surname", "name", "patronymic", Data()}
+Human::Human() : Human{"surname", "name", "patronymic", Data()}
 {
 }
 
-Human::Human(Data data_of_birth) : Human{ 0, "surname", "name", "patronymic" , data_of_birth}
+Human::Human(Data data_of_birth) : Human{"surname", "name", "patronymic" , data_of_birth}
 {
 	this->data_of_birth = data_of_birth;
 }
 
 Human::Human(const Human &human)
-	: id{human.id},
-	surname{human.surname},
+	: surname{human.surname},
 	name{human.name},
 	patronymic{human.patronymic},
 	data_of_birth{human.data_of_birth}
@@ -33,20 +32,16 @@ Human::~Human()
 {
 }
 
-int Human::getCountNuman()
+int Human::getCountHuman()
 {
 	cout << "count human: ";
 	return count_human;
 }
 
-void Human::setId(int id)
-{
-	this->id = id;
-}
-
 int Human::getId()
 {
-	return id;
+	cout << "Id: ";
+	return id++;
 }
 
 void Human::setSurname(string surname)
@@ -56,6 +51,7 @@ void Human::setSurname(string surname)
 
 string Human::getSurname()
 {
+	cout << "Surname: ";
 	return surname;
 }
 
@@ -66,6 +62,7 @@ void Human::setName(string name)
 
 string Human::getName()
 {
+	cout << "Name: ";
 	return name;
 }
 
@@ -76,6 +73,7 @@ void Human::setPatronymic(string patronymic)
 
 string Human::getPatronymic()
 {
+	cout << "Patronymic: ";
 	return patronymic;
 }
 
@@ -95,10 +93,11 @@ void Human::printInfoHuman()
 	cout << getSurname() << endl;
 	cout << getName() << endl;
 	cout << getPatronymic() << endl;
+	cout << "Data of birth:\n";
 	cout << getDataOfBirth().getDay() << endl;
 	cout << getDataOfBirth().getMonth() << endl;
-	cout << getDataOfBirth().getYear() << endl;
-	cout << getCountNuman() << endl << endl;
+	cout << getDataOfBirth().getYear() << endl << endl;
 }
 
 int Human::count_human{ 0 };
+int Human::id{ 0 };
